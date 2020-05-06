@@ -81,7 +81,7 @@ public String readPatient()
 	{return "Error while connecting to the database for reading."; } 
 	 
 	   // Prepare the html table to be displayed    
-	output = "<table border=\'1'><tr><th>First Name</th><th>Last Name</th><th>NIC</th><th>DOB</th><th>Email</th><th>Mobile</th><th>Address</th><th>Blood Group</th><th>Allergy</th><th>Gender</th><th>password</th><th>Update</th><th>Remove</th></tr>"; 
+	output = "<table border=\'1'><tr><th>First Name</th><th>Last Name</th><th>NIC</th><th>DOB</th><th>Email</th><th>Mobile</th><th>Address</th><th>Blood Group</th><th>Allergy</th><th>Gender</th><th>password</th><th>ConfirmPassword</th><th>Update</th><th>Remove</th></tr>"; 
 	
 
 	 
@@ -105,7 +105,7 @@ public String readPatient()
 		    String Allergy = rs.getString("Allergy"); 
 		    String Gender = rs.getString("Gender"); 
 		    String Password = rs.getString("Password"); 
-		
+		    String ConfirmPassword = rs.getString("ConfirmPassword");
 		    // Add into the html table
 			output += "<tr><td><input id='hidItemIDUpdate'       name='hidItemIDUpdate' type='hidden'        value='"
 					+ Patient_ID + "'>" + FirstName + "</td>";     
@@ -119,7 +119,7 @@ public String readPatient()
 		    output += "<td>" + Allergy + "</td>";
 		    output += "<td>" + Gender + "</td>"; 
 		    output += "<td>" + Password + "</td>"; 
-		    
+		    output += "<td>" + ConfirmPassword + "</td>";
 		 // buttons
 			output += "<td><input name='btnUpdate' type='button'       value='Update'           class='btnUpdate btn btn-secondary'></td>      <td><input name='btnRemove' type='button'       value='Remove'           class='btnRemove btn btn-danger' data-itemid='"
 					+ Patient_ID + "'>" + "</td></tr>";

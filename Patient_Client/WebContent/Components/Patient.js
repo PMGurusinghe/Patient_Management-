@@ -169,28 +169,18 @@ function validatePatientForm() {
 	if ($("#Allergy").val().trim() == "") {
 		return "Insert Allergies.";
 	}
-	/*// Gender-------------------------------
+	// Gender-------------------------------
 	if ($('input[name="rdoGender"]:checked').length === 0) {
 		return "Select gender.";
-	}*/
+	}
 	// Password------------------------
 	if ($("#Password").val().trim() == "") {
 		return "Insert Allergies.";
 	}
 	
-	/*var pwdReg = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{4,8}$/;
-	var tmpPwd =  $("#password").val().trim();
-	if(!tmpPwd.match(pwdReg)){
-		return "Insert a Password 4 to 8 characters which contain at least one numeric digit, one uppercase and one lowercase letter...!";
-	}*/
 	// ConfirmPassword------------------------
 	if($("#ConfirmPassword").val().trim() == ""){
 		return "Insert Confirm Password...!";
 	}
-	
-	/*var tmpCpwd = $("#ConfirmPassword").val().trim();
-	if(tmpCpwd != tmpPwd){
-		return "Passwords are mismatching...!";
-	}*/
 	return true;
 }

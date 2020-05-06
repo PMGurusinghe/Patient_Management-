@@ -21,39 +21,66 @@
 			
 		<div class="form-container">
 			<form id="formPatient" name="formPatient" method="post" action="PatientRegistration.jsp">
+					<h2 class="text-center">
+					<strong>Patient Registration Form</strong>
+				</h2>
 					FirstName: <input id="FirstName" name="FirstName" type="text"
 						class="form-control form-control-sm"> <br> 
+					
 					LastName: <input id="LastName" name="LastName" type="text"
 						class="form-control form-control-sm"> <br>
-				    NIC price: <input id="NIC" name="NIC" type="text"
+				    
+				    NIC: <input id="NIC" name="NIC" type="text"
 						class="form-control form-control-sm"> <br>
-					DOB: <input id="DOB" name="DOB" type="text"
-						class="form-control form-control-sm"> 
+					
+					DOB: <input id="DOB" name="DOB" type="Date"
+						class="form-control form-control-sm"> <br>
+						
 					Email: <input id="Email" name="Email" type="text"
 						class="form-control form-control-sm"> <br> 
+						
 					Mobile: <input id="Mobile" name="Mobile" type="text"
 						class="form-control form-control-sm"> <br>
+						
 				    Address: <input id="Address" name="Address" type="text"
 						class="form-control form-control-sm"> <br>
+						
 					BloodGroup: <input id="BloodGroup" name="BloodGroup" type="text"
-						class="form-control form-control-sm"> 	
-							Allergy: <input id="Allergy" name="Allergy" type="text"
-						class="form-control form-control-sm"> 	
-							Gender: <input id="Gender" name="Gender" type="text"
-						class="form-control form-control-sm"> 	
-							Password: <input id="Password" name="Password" type="text"
-						class="form-control form-control-sm"> 	
-							ConfirmPassword: <input id="ConfirmPassword" name="ConfirmPassword" type="text"
+						class="form-control form-control-sm"> <br>
+							
+					Allergy: <input id="Allergy" name="Allergy" type="text"
+						class="form-control form-control-sm"> 	<br>
+					
+					 Gender: 				
+					&nbsp;&nbsp;
+					Male <input class="form-control-sm" type="radio" id="Gender"
+						name="rdoGender" value="Male" class="form-control form-control">
+					&nbsp;&nbsp;
+					Female <input class="form-control-sm" type="radio" id="Gender" 
+						name="rdoGender" value="Female" class="form-control form-control"> <br>	 <br>	
+						
+					
+					Password: <input id="Password" name="Password" type="text"
+						class="form-control form-control-sm"> <br>	
+						
+					ConfirmPassword: <input id="ConfirmPassword" name="ConfirmPassword" type="text"
 						class="form-control form-control-sm"> 	
 						<br> 
 				
 				<div id="alertSuccess" class="alert alert-success"></div>
 				<div id="alertError" class="alert alert-danger"></div>
-				<br>
+				
 						<input
-						id="btnSave" name="btnSave" type="button" value="Save"
+						id="btnSave" name="btnSave" type="button" value="Sign Up"
 						class="btn btn-primary"> <input type="hidden"
 						id="hidItemIDSave" name="hidItemIDSave" value="">
+					<br><br>
+			<div id="divPatientsGrid">
+			<%
+				Patient patientObj = new Patient();
+				out.print(patientObj.readPatient());
+			%>
+		</div>
 				</form>
 			
 			
