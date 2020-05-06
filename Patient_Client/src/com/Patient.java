@@ -9,7 +9,7 @@ public Connection connect() {
 
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			con = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/patient", "root", "");
+			con = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/patient","root","");
 
 			// For testing
 			System.out.print("Successfully connected");
@@ -18,7 +18,7 @@ public Connection connect() {
 		}
 		return con;
 	}
-public String insertPatient(String FName, String LName, String NIC,String DOB,String Email,String Mobile,String Address,String BloodGroup, String Allergy,String Gender,String password,String ConfirmPassword)
+public String insertPatient(String FirstName, String LastName, String NIC,String DOB,String Email,String Mobile,String Address,String BloodGroup, String Allergy,String Gender,String password,String ConfirmPassword)
 		
 		 
 {
@@ -42,8 +42,8 @@ public String insertPatient(String FName, String LName, String NIC,String DOB,St
 
 			// binding values
 			preparedStmt.setInt(1, 0);
-			preparedStmt.setString(2, FName);
-			preparedStmt.setString(3, LName);
+			preparedStmt.setString(2, FirstName);
+			preparedStmt.setString(3, LastName);
 			preparedStmt.setString(4, NIC);
 			preparedStmt.setString(5, DOB);
 			preparedStmt.setString(6, Email);
@@ -105,7 +105,8 @@ public String readPatient()
 		    String Allergy = rs.getString("Allergy"); 
 		    String Gender = rs.getString("Gender"); 
 		    String Password = rs.getString("Password"); 
-		 // Add into the html table
+		
+		    // Add into the html table
 			output += "<tr><td><input id='hidItemIDUpdate'       name='hidItemIDUpdate' type='hidden'        value='"
 					+ Patient_ID + "'>" + FirstName + "</td>";     
 		    output += "<td>" + LastName + "</td>";     

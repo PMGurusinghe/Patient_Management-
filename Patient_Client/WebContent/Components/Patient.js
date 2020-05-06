@@ -63,7 +63,7 @@ function onPatientSaveComplete(response, status) {
 		 $("#alertError").text("Unknown error while saving.."); 
 		 $("#alertError").show(); 
 		 $("#hidItemIDSave").val(""); 
-		 $("#formItem")[0].reset(); 
+		 $("#formPatient")[0].reset(); 
 	 }
 }
 // UPDATE=====================================================================
@@ -80,6 +80,7 @@ $(document).on("click",".btnUpdate",function(event) {
 			$("#Allergy").val($(this).closest("tr").find('td:eq(8)').text());
 			$("#Gender").val($(this).closest("tr").find('td:eq(9)').text());
 			$("#Password").val($(this).closest("tr").find('td:eq(10)').text());
+			$("#ConfirmPassword").val($(this).closest("tr").find('td:eq(11)').text());
 		});
 
 //REMOVE========================================================================
@@ -93,11 +94,11 @@ $(document).on("click", ".btnRemove", function(event)
 				dataType : "text",   
 				complete : function(response, status)  
 				{    
-					onPatientSaveComplete(response.responseText, status);  
+					onItemDeleteComplete(response.responseText, status);  
 					} 
 			}); 
 	}); 
-function onPatientSaveComplete(response, status)
+function onItemDeleteComplete(response, status)
 { 
 	if (status == "success")  
 	{  
@@ -159,19 +160,19 @@ function validatePatientForm() {
 	if ($("#Address").val().trim() == "") {
 		return "Insert Address.";
 	}
-	// BloodGroup-------------------------------
+	/*// BloodGroup-------------------------------
 	if ($("#BloodGroup").val() == "0") {
 		return "Select Blood Group.";
 	}
-
+*/
 	// Allergy-------------------------------
 	if ($("#Allergy").val().trim() == "") {
 		return "Insert Allergies.";
 	}
-	// Gender-------------------------------
+	/*// Gender-------------------------------
 	if ($('input[name="rdoGender"]:checked').length === 0) {
 		return "Select gender.";
-	}
+	}*/
 	// Password------------------------
 	if ($("#Password").val().trim() == "") {
 		return "Insert Allergies.";

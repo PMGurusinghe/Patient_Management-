@@ -20,152 +20,43 @@
 	<div class="register-photo">
 			
 		<div class="form-container">
-			
 			<form id="formPatient" name="formPatient" method="post" action="PatientRegistration.jsp">
-					
-				<h2 class="text-center">
-					<strong>Patient Registration Form</strong>
-				</h2>
-
-				<!-- NAME -->
-				<div class="input-group input-group-sm mb-3">
-					<div class="input-group-prepend">
-						<span class="input-group-text" id="lblFName">First Name:</span>
-					</div>
-					<input class="form-control" type="text" id="FirstName" name="FirstName"
-						placeholder="Enter your First Name">
-				</div>
-
-				<div class="input-group input-group-sm mb-3">
-					<div class="input-group-prepend">
-						<span class="input-group-text" id="lblLName">Last Name:</span>
-					</div>
-					<input class="form-control" type="text" id="LastName" name="LastName"
-						placeholder="Enter your Last Name">
-				</div>
-
-
-				<!-- NIC -->
-				<div class="input-group input-group-sm mb-3">
-					<div class="input-group-prepend">
-						<span class="input-group-text" id="lblNIC">NIC:</span>
-					</div>
-					<input class="form-control" type="text" id="NIC" name="NIC"
-						placeholder="Enter your NIC">
-				</div>
-
-				<!-- DOB -->
-				<div class="input-group input-group-sm mb-3">
-					<div class="input-group-prepend">
-						<span class="input-group-text" id="lblDOB">DOB:</span>
-					</div>
-					<input class="form-control" type="date" id="DOB"
-						name="DOB" placeholder="Enter your DOB">
-				</div>
-
-
-				<!-- EMAIL -->
-				<div class="input-group input-group-sm mb-3">
-					<div class="input-group-prepend">
-						<span class="input-group-text" id="lblEmail">Email:</span>
-					</div>
-					<input class="form-control" type="email" id="Email" name="Email"
-						placeholder="Enter your Email">
-				</div>
-
-
-				<!-- PHONE NUMBER -->
-				<div class="input-group input-group-sm mb-3">
-					<div class="input-group-prepend">
-						<span class="input-group-text" id="lblMobile">Mobile:</span>
-					</div>
-					<input class="form-control" type="tel" id="Mobile" name="Mobile"
-						placeholder="Format: xxx-xx-xxxxx"
-						pattern="[0-9]{3}-[0-9]{2}-[0-9]{5}">
-				</div>
-
-
-				<!-- ADDRESS -->
-				<div class="input-group input-group-sm mb-3">
-					<div class="input-group-prepend">
-						<span class="input-group-text" id="lblAddress"> Current
-							Address: </span>
-					</div>
-					<input class="form-control" type="text" id="Address"
-						name="Address" placeholder="Enter your Address">
-				</div>
-
-
-				<!-- BLOOD GROUP -->
-				<div class="input-group input-group-sm mb-3">
-					<div class="input-group-prepend">
-						<span class="input-group-text" id="lblBloodgroup"> Blood Group: </span>
-					</div>
-					<select class="form-control" id="BloodGroup" name="BloodGroup" >
-					<option value="0">---Select Blood Group-</option>
-					<option value="1">A</option>
-					<option value="2">B</option>
-					<option value="3">AB</option>
-					<option value="4">O</option>
-					</select>
-				</div>
-		<!-- Allergy -->
-				<div class="input-group input-group-sm mb-3">
-					<div class="input-group-prepend">
-						<span class="input-group-text" id="lblAllergy"> Allergy: </span>
-					</div>
-					<input class="form-control" type="text" id="Allergy"
-						name="Allergy" placeholder="Allergies">
-				</div>
-
-
-				<!-- GENDER -->
-				<div class="input-group input-group-sm mb-3">
-					<div class="input-group-prepend">
-						<span class="input-group-text" id="lblGender"> Gender: </span>
-					</div>
-				
-					&nbsp;&nbsp;Male <input class="form-control-sm" type="radio" id="rdoGenderMale"
-						name="rdoGender" value="Male"> &nbsp;&nbsp;Female <input class="form-control-sm"
-						type="radio" id="rdoGenderFemale" name="rdoGender" value="Female">
-				</div>
-
-				<!-- PASSWORD -->
-				<div class="input-group input-group-sm mb-3">
-					<div class="input-group-prepend">
-						<span class="input-group-text" id="lblGender"> Password: </span>
-					</div>
-					<input class="form-control" type="password" id="password" name="password"
-						placeholder="Password">
-				</div>
-
-				<div class="input-group input-group-sm mb-3">
-					<div class="input-group-prepend">
-						<span class="input-group-text" id="lblGender">
-							Confirm-Password: </span>
-					</div> 
-					<input class="form-control" type="password" id="ConfirmPassword"name="ConfirmPassword"
-						placeholder="Password (confirm)">
-				</div>
-				
-				<div class="form-group">
+					FirstName: <input id="FirstName" name="FirstName" type="text"
+						class="form-control form-control-sm"> <br> 
+					LastName: <input id="LastName" name="LastName" type="text"
+						class="form-control form-control-sm"> <br>
+				    NIC price: <input id="NIC" name="NIC" type="text"
+						class="form-control form-control-sm"> <br>
+					DOB: <input id="DOB" name="DOB" type="text"
+						class="form-control form-control-sm"> 
+					Email: <input id="Email" name="Email" type="text"
+						class="form-control form-control-sm"> <br> 
+					Mobile: <input id="Mobile" name="Mobile" type="text"
+						class="form-control form-control-sm"> <br>
+				    Address: <input id="Address" name="Address" type="text"
+						class="form-control form-control-sm"> <br>
+					BloodGroup: <input id="BloodGroup" name="BloodGroup" type="text"
+						class="form-control form-control-sm"> 	
+							Allergy: <input id="Allergy" name="Allergy" type="text"
+						class="form-control form-control-sm"> 	
+							Gender: <input id="Gender" name="Gender" type="text"
+						class="form-control form-control-sm"> 	
+							Password: <input id="Password" name="Password" type="text"
+						class="form-control form-control-sm"> 	
+							ConfirmPassword: <input id="ConfirmPassword" name="ConfirmPassword" type="text"
+						class="form-control form-control-sm"> 	
+						<br> 
 				
 				<div id="alertSuccess" class="alert alert-success"></div>
 				<div id="alertError" class="alert alert-danger"></div>
-			
-				<input
-						id="btnSave" name="btnSave" type="button" value="SignUp"
+				<br>
+						<input
+						id="btnSave" name="btnSave" type="button" value="Save"
 						class="btn btn-primary"> <input type="hidden"
 						id="hidItemIDSave" name="hidItemIDSave" value="">
-				</div>
-				<a class="already" href="PatientLogin.jsp">You already have an account? Login
-					here.</a>
-					
-						
+				</form>
 			
-			</form>
-		
-	 
+			
 		</div>
 	</div>
 	<script src="js/jquery.min.js"></script>
