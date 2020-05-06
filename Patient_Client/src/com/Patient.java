@@ -18,7 +18,7 @@ public Connection connect() {
 		}
 		return con;
 	}
-public String insertPatient(String FirstName, String LastName, String NIC,String DOB,String Email,String Mobile,String Address,String BloodGroup, String Allergy,String Gender,String password,String ConfirmPassword)
+public String insertPatient(String FirstName, String LastName, String NIC,String DOB,String Email,String Mobile,String Address,String BloodGroup, String Allergy,String Gender,String Password,String ConfirmPassword)
 		
 		 
 {
@@ -52,7 +52,7 @@ public String insertPatient(String FirstName, String LastName, String NIC,String
 			preparedStmt.setString(9, BloodGroup);
 			preparedStmt.setString(10, Allergy);
 			preparedStmt.setString(11, Gender);
-			preparedStmt.setString(12, password);
+			preparedStmt.setString(12, Password);
 			preparedStmt.setString(13, ConfirmPassword);
 		
 			// execute the statement

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 06, 2020 at 06:13 PM
+-- Generation Time: May 06, 2020 at 06:40 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.3
 
@@ -51,7 +51,9 @@ CREATE TABLE `patient` (
 INSERT INTO `patient` (`Patient_ID`, `FirstName`, `LastName`, `NIC`, `DOB`, `Email`, `Mobile`, `Address`, `BloodGroup`, `Allergy`, `Gender`, `Password`, `ConfirmPassword`) VALUES
 (28, 'Pamod Madhushan', 'Gurusinghe', '983201164V', '1998-11-15', 'madhushangurusinghe@gmail.com', '+94703054972', 'Chithrani,Ella Road,, Elpitiya.', 'O', 'No', 'Male', '1854', '1854'),
 (29, 'Dilanka ', 'Gunasekara', '773201164V', '1998-05-23', 'gunasekara@gmail.com', '0761231231', 'Araneta Center, Cubao, NCR, Quezon', 'AB', 'Drug Allergy', 'Male', '123@guna', '123@guna'),
-(30, 'Hiruni', 'Gurusinghe', '773201164V', '1998-10-14', 'hiruni@gmail.com', '0703054972', 'HiruniCenter, Cubao, NCR, Quezon', 'B', 'Pet Allergy.', 'Femal', 'H@345', 'H@345');
+(30, 'Hiruni', 'Gurusinghe', '773201164V', '1998-10-14', 'hiruni@gmail.com', '0703054972', 'HiruniCenter, Cubao, NCR, Quezon', 'B', 'Pet Allergy.', 'Femal', 'H@345', 'H@345'),
+(31, 'Shammi ', 'jayasinghe', '96453225V', '1996-07-23', 'jayasinghe@gmail.com', '0912290156', 'jayasinghe,SS Road,, Malabe.', '3', 'Latex Allergy', NULL, NULL, '7@Edxwe'),
+(32, 'Yuvin', 'Ransika', '981750058V', '1998-06-25', 'Ransika@gmail.com', '0764879548', 'mm Road,, Gampaha.', '4', 'Pollen Allergy', NULL, NULL, 'ransi@12');
 
 --
 -- Indexes for dumped tables
@@ -71,7 +73,7 @@ ALTER TABLE `patient`
 -- AUTO_INCREMENT for table `patient`
 --
 ALTER TABLE `patient`
-  MODIFY `Patient_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `Patient_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

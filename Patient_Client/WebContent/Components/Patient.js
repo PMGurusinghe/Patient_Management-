@@ -46,7 +46,7 @@ function onPatientSaveComplete(response, status) {
 	{  
 			$("#alertSuccess").text("Successfully saved."); 
 			$("#alertSuccess").show(); 
-			$("#divItemsGrid").html(resultSet.data); 
+			$("#divPatientsGrid").html(resultSet.data); 
 			} 
 	else if (resultSet.status.trim() == "error")
 	{ 
@@ -62,7 +62,7 @@ function onPatientSaveComplete(response, status) {
 	 { 
 		 $("#alertError").text("Unknown error while saving.."); 
 		 $("#alertError").show(); 
-		 $("#hidItemIDSave").val(""); 
+		 $("#divPatientsGrid").val(""); 
 		 $("#formPatient")[0].reset(); 
 	 }
 }
@@ -108,7 +108,7 @@ if (resultSet.status.trim() == "success")
 {   
 	$("#alertSuccess").text("Successfully deleted.");  
 	$("#alertSuccess").show(); 
-    $("#divItemsGrid").html(resultSet.data);   
+    $("#divPatientsGrid").html(resultSet.data);   
  } 
 else if (resultSet.status.trim() == "error")  
 {   

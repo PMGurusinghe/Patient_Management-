@@ -39,7 +39,7 @@
 						class="form-control form-control-sm"> <br> 
 					LastName: <input id="LastName" name="LastName" type="text"
 						class="form-control form-control-sm"> <br>
-				    NIC price: <input id="NIC" name="NIC" type="text"
+				    NIC: <input id="NIC" name="NIC" type="text"
 						class="form-control form-control-sm"> <br>
 					
 				<div class="input-group input-group-sm mb-3">
@@ -74,15 +74,16 @@
 							<!-- Gender: <input id="Gender" name="Gender" type="text"
 						class="form-control form-control-sm">  -->
 						<!-- GENDER -->
-				<div class="input-group input-group-sm mb-3">
+					<div class="input-group input-group-sm mb-3">
 					<div class="input-group-prepend">
 						<span class="input-group-text" id="lblGender"> Gender: </span>
 					</div>
 				
-					&nbsp;&nbsp;Male <input class="form-control-sm" type="radio" id="Gender"
-						name="rdoGender" value="Male"> &nbsp;&nbsp;Female <input class="form-control-sm"
-						type="radio" id="Gender" name="rdoGender" value="Female">
-				</div>	
+					    &nbsp;&nbsp;Male <input class="form-control-sm" type="radio" id="Gender"
+							name="rdoGender" value="Male"> 
+						&nbsp;&nbsp;Female <input class="form-control-sm" type="radio" id="Gender" 
+							name="rdoGender" value="Female">
+					</div>	
 							Password: <input id="Password" name="Password" type="text"
 						class="form-control form-control-sm"> 	
 							ConfirmPassword: <input id="ConfirmPassword" name="ConfirmPassword" type="text"
