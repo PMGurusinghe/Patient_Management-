@@ -60,20 +60,18 @@ public String insertPatient(String FName, String LName, String NIC,String DOB,St
 			// execute the statement
 			preparedStmt.execute();
 			con.close();
-
-			output = "Inserted successfully";
 			
-		   }
-		
-		catch (Exception e) 
-		{
-			output = "Error while inserting the Patient Details.";
+			String newpatient = readPatient();
+			output = "{\"status\":\"success\", \"data\": \"" + newpatient + "\"}";
+			
+		} catch (Exception e) {
+			output = "{\"status\":\"error\", \"data\":         \"Error while inserting the Details.\"}";
 			System.err.println(e.getMessage());
 		}
 
 		return output;
-
 	}
+
 public String readPatient()  
 {   
 	String output = ""; 
@@ -124,12 +122,9 @@ public String readPatient()
 		    output += "<td>" + Gender + "</td>"; 
 		    output += "<td>" + Password + "</td>"; 
 		    
-		 // buttons     
-		    output += "<td><input name=\"btnUpdate\" type=\"button\"value=\"Update\" class=\"btn btn-secondary\"></td>"
-		    		+ "<td><form method=\"post\" action=\"PatientRegistration.jsp\">"      
-		    		+ "<input name=\"btnRemove\" type=\"submit\" value=\"Remove\" class=\"btn btn-danger\">"      
-		    		+ "<input name=\"itemID\" type=\"hidden\" value=\"" + Patient_ID     
-		    		+ "\">" + "</form></td></tr>";    
+		 // buttons
+			output += "<td><input name='btnUpdate' type='button'       value='Update'           class='btnUpdate btn btn-secondary'></td>      <td><input name='btnRemove' type='button'       value='Remove'           class='btnRemove btn btn-danger' data-itemid='"
+					+ Patient_ID + "'>" + "</td></tr>";
 		    
 	   } 
 		    
@@ -182,18 +177,16 @@ public String updatePatient(String Patient_ID,String FName, String LName, String
 		    // execute the statement   
 		   preparedStmt.execute();    
 		   con.close(); 
-		 
-		   output = "Updated successfully"; 
-		 
-		}   
-		catch (Exception e)   
-		{    
-			output = "Error while updating the item.";    
-			System.err.println(e.getMessage());   
-		} 
-	
+
+			String newpatient = readPatient();
+			output = "{\"status\":\"success\", \"data\": \"" + newpatient + "\"}";
+		} catch (Exception e) {
+			output = "{\"status\":\"error\", \"data\":         \"Error while updating the Details.\"}";
+			System.err.println(e.getMessage());
+		}
+
 		return output;
-	} 
+	}
 public String deletePatient(String Patient_ID) 
 	{   
 		String output = ""; 
@@ -216,17 +209,16 @@ public String deletePatient(String Patient_ID)
 			// execute the statement    
 			preparedStmt.execute();    
 			con.close(); 
-	
-			output = "Deleted successfully";   
 			
-		}  
-		catch (Exception e)   
-		{   
-			output = "Error while deleting the Patient Details.";    
-			System.err.println(e.getMessage());  
+			String newpatient = readPatient();
+			output = "{\"status\":\"success\", \"data\": \"" + newpatient + "\"}";
 		} 
-	
-		return output;  
-	} 
+		catch (Exception e)
+		{
+			output = "{\"status\":\"error\", \"data\":         \"Error while deleting the Patient Details.\"}";
+			System.err.println(e.getMessage());
+		}
 
+		return output;
+	}
 }
