@@ -124,12 +124,11 @@
 					<div class="input-group-prepend">
 						<span class="input-group-text" id="lblGender"> Gender: </span>
 					</div>
-					&nbsp;&nbsp; Male &nbsp; <input class="form-control-sm"
-						type="radio" id="rdoGenderMale" name="Gender" value="Male">
-					&nbsp;&nbsp;Female &nbsp; <input class="form-control-sm"
-						type="radio" id="rdoGenderFemale" name="Gender" value="Female">
+				
+					&nbsp;&nbsp;Male <input class="form-control-sm" type="radio" id="rdoGenderMale"
+						name="rdoGender" value="Male"> &nbsp;&nbsp;Female <input class="form-control-sm"
+						type="radio" id="rdoGenderFemale" name="rdoGender" value="Female">
 				</div>
-
 
 				<!-- PASSWORD -->
 				<div class="input-group input-group-sm mb-3">

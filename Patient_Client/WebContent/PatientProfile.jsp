@@ -92,10 +92,8 @@
 					aria-expanded="false">Profile</a></li>
 				<li class="active"><a href="EmployeeList.jsp">Appointment List </a></li>
 				<li><a href="#pageSubmenu" data-toggle="collapse"
-					aria-expanded="false" class="dropdown-toggle">Reports</a></li>
-				<li><a href="LoginCreds.jsp">Login Authentication</a></li>
+					aria-expanded="false" class="dropdown-toggle">Payment Reports</a></li>
 				
-				<li><a href="#">Settings</a></li>
 			</ul>
 
 
@@ -110,9 +108,8 @@
 					<button type="button" id="sidebarCollapse" class="btn btn-info">
 						<i class="fas fa-bars"></i>
 					</button>
-					<%
-						out.print(session.getAttribute("statusMsg"));
-					%>
+					<br>
+					<br>
 					<br>
 					<%
 						Patient pObj = new Patient();

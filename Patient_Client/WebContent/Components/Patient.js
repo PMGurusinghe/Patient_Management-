@@ -146,8 +146,10 @@ function validatePatientForm() {
 		return "Insert Date of Birth.";
 	}
 	// Email-------------------------------
-	if ($("#Email").val().trim() == "") {
-		return "Insert Email.";
+	var emailReg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+	var tmpEmail =  $("#Email").val().trim();
+	if(!tmpEmail.match(emailReg)){
+		return "Insert a valid Email...!";
 	}
 	// Mobile-------------------------------
 	if ($("#Mobile").val().trim() == "") {
@@ -158,26 +160,36 @@ function validatePatientForm() {
 		return "Insert Address.";
 	}
 	// BloodGroup-------------------------------
-	if ($("#BloodGroup").val().trim() == "") {
-		return "Select BloodGroup.";
+	if ($("#BloodGroup").val() == "0") {
+		return "Select Blood Group.";
 	}
+
 	// Allergy-------------------------------
 	if ($("#Allergy").val().trim() == "") {
 		return "Insert Allergies.";
 	}
 	// Gender-------------------------------
-	if ($("#Gender").val().trim() == "") {
-		return "Select Gender.";
+	if ($('input[name="rdoGender"]:checked').length === 0) {
+		return "Select gender.";
+	}
+	// Password------------------------
+	if ($("#Password").val().trim() == "") {
+		return "Insert Allergies.";
 	}
 	
-	// Password------------------------
-	if ($("#password").val().trim() == "") {
-		return "Insert Patient Password.";
-	}
-
+	/*var pwdReg = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{4,8}$/;
+	var tmpPwd =  $("#password").val().trim();
+	if(!tmpPwd.match(pwdReg)){
+		return "Insert a Password 4 to 8 characters which contain at least one numeric digit, one uppercase and one lowercase letter...!";
+	}*/
 	// ConfirmPassword------------------------
-	if ($("#ConfirmPassword").val().trim() == "") {
-		return "Confirm Patient Password.";
+	if($("#ConfirmPassword").val().trim() == ""){
+		return "Insert Confirm Password...!";
 	}
+	
+	/*var tmpCpwd = $("#ConfirmPassword").val().trim();
+	if(tmpCpwd != tmpPwd){
+		return "Passwords are mismatching...!";
+	}*/
 	return true;
 }
