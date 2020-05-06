@@ -40,7 +40,19 @@ public class PatientAPI extends HttpServlet {
 		// TODO Auto-generated method stub
 		//doGet(request, response);
 		
-		String output = patientObj.insertPatient(request.getParameter("FirstName"),      request.getParameter("LastName"),     request.getParameter("NIC"),        request.getParameter("DOB"),        request.getParameter("Email"),        request.getParameter("Mobile"),        request.getParameter("Address"),        request.getParameter("BloodGroup"),        request.getParameter("Allergy"),        request.getParameter("Gender"),        request.getParameter("password"),        request.getParameter("ConfirmPassword")); 
+		String output = patientObj.insertPatient(
+				request.getParameter("FirstName"),      
+				request.getParameter("LastName"),   
+				request.getParameter("NIC"),      
+				request.getParameter("DOB"),       
+				request.getParameter("Email"),     
+				request.getParameter("Mobile"),        
+				request.getParameter("Address"),        
+				request.getParameter("BloodGroup"),       
+				request.getParameter("Allergy"),        
+				request.getParameter("Gender"),       
+				request.getParameter("password"),      
+				request.getParameter("ConfirmPassword")); 
 		
 		 response.getWriter().write(output); 
 	}
@@ -54,7 +66,9 @@ public class PatientAPI extends HttpServlet {
 		Map paras = getParasMap(request);
 
 		String output = patientObj.updatePatient(paras.get("hidItemIDSave").toString(), paras.get("FirstName").toString(),
-				paras.get("LastName").toString(), paras.get("NIC").toString(), paras.get("DOB").toString(), paras.get("Email").toString(), paras.get("Mobile").toString(), paras.get("Mobile").toString(), paras.get("Address").toString(), paras.get("BloodGroup").toString(), paras.get("Allergy").toString(), paras.get("Gender").toString(), paras.get("password").toString());
+				paras.get("LastName").toString(), paras.get("NIC").toString(), paras.get("DOB").toString(), paras.get("Email").toString(),
+				paras.get("Mobile").toString(), paras.get("Mobile").toString(), paras.get("Address").toString(), paras.get("BloodGroup").toString(), 
+				paras.get("Allergy").toString(), paras.get("Gender").toString(), paras.get("password").toString());
 
 		response.getWriter().write(output);
 	}

@@ -17,7 +17,7 @@ $(document).on("click", "#btnSave", function(event) {
 	$("#alertError").hide();
 
 	// Form validation----------------
-	var status = validateItemForm();
+	var status = validatePatientForm();
 	if (status != true) 
 	{
 		$("#alertError").text(status);
@@ -29,16 +29,16 @@ $(document).on("click", "#btnSave", function(event) {
 	var type = ($("#hidItemIDSave").val() == "") ? "POST" : "PUT";
 	$.ajax( 
 			{
-				url : "ItemsAPI",  
+				url : "PatientAPI",  
 				type : type,  data : 
-					$("#formItem").serialize(), 
+					$("#formPatient").serialize(), 
 					dataType : "text",  
 					complete : function(response, status)  
-					{   onItemSaveComplete(response.responseText, status); 
+					{   onPatientSaveComplete(response.responseText, status); 
 			} 
 		}); 
 });
-function onItemSaveComplete(response, status) {
+function onPatientSaveComplete(response, status) {
 	
 	var resultSet = JSON.parse(response); 
 	 
@@ -69,10 +69,17 @@ function onItemSaveComplete(response, status) {
 // UPDATE=====================================================================
 $(document).on("click",".btnUpdate",function(event) {
 			$("#hidItemIDSave").val($(this).closest("tr").find('#hidItemIDUpdate').val());
-			$("#itemCode").val($(this).closest("tr").find('td:eq(0)').text());
-			$("#itemName").val($(this).closest("tr").find('td:eq(1)').text());
-			$("#itemPrice").val($(this).closest("tr").find('td:eq(2)').text());
-			$("#itemDesc").val($(this).closest("tr").find('td:eq(3)').text());
+			$("#FirstName").val($(this).closest("tr").find('td:eq(0)').text());
+			$("#LastName").val($(this).closest("tr").find('td:eq(1)').text());
+			$("#NIC").val($(this).closest("tr").find('td:eq(2)').text());
+			$("#DOB").val($(this).closest("tr").find('td:eq(3)').text());
+			$("#Email").val($(this).closest("tr").find('td:eq(4)').text());
+			$("#Mobile").val($(this).closest("tr").find('td:eq(5)').text());
+			$("#Address").val($(this).closest("tr").find('td:eq(6)').text());
+			$("#BloodGroup").val($(this).closest("tr").find('td:eq(7)').text());
+			$("#Allergy").val($(this).closest("tr").find('td:eq(8)').text());
+			$("#Gender").val($(this).closest("tr").find('td:eq(9)').text());
+			$("#Password").val($(this).closest("tr").find('td:eq(10)').text());
 		});
 
 //REMOVE========================================================================
@@ -80,17 +87,17 @@ $(document).on("click", ".btnRemove", function(event)
 		{  
 	$.ajax( 
 			{   
-				url : "ItemsAPI",  
+				url : "PatientAPI",  
 				type : "DELETE",   
-				data : "itemID=" + $(this).data("itemid"),   
+				data : "Patient_ID=" + $(this).data("Patient_ID"),   
 				dataType : "text",   
 				complete : function(response, status)  
 				{    
-					onItemDeleteComplete(response.responseText, status);  
+					onPatientSaveComplete(response.responseText, status);  
 					} 
 			}); 
 	}); 
-function onItemDeleteComplete(response, status)
+function onPatientSaveComplete(response, status)
 { 
 	if (status == "success")  
 	{  
@@ -120,34 +127,57 @@ else
 	}
 
 // CLIENT-MODEL=================================================================
-function validateItemForm() {
-	// CODE
-	if ($("#itemCode").val().trim() == "") {
-		return "Insert Item Code.";
+function validatePatientForm() {
+	// FirstName
+	if ($("#FirstName").val().trim() == "") {
+		return "Insert Patient First Name.";
 	}
 
-	// NAME
-	if ($("#itemName").val().trim() == "") {
-		return "Insert Item Name.";
+	// LastName
+	if ($("#LastName").val().trim() == "") {
+		return "Insert Patient Last Name.";
 	}
-	// PRICE-------------------------------
-	if ($("#itemPrice").val().trim() == "") {
-		return "Insert Item Price.";
+	// NIC-------------------------------
+	if ($("#NIC").val().trim() == "") {
+		return "Insert NIC.";
+	}
+	// DOB-------------------------------
+	if ($("#DOB").val().trim() == "") {
+		return "Insert Date of Birth.";
+	}
+	// Email-------------------------------
+	if ($("#Email").val().trim() == "") {
+		return "Insert Email.";
+	}
+	// Mobile-------------------------------
+	if ($("#Mobile").val().trim() == "") {
+		return "Insert Mobile.";
+	}
+	// Address-------------------------------
+	if ($("#Address").val().trim() == "") {
+		return "Insert Address.";
+	}
+	// BloodGroup-------------------------------
+	if ($("#BloodGroup").val().trim() == "") {
+		return "Select BloodGroup.";
+	}
+	// Allergy-------------------------------
+	if ($("#Allergy").val().trim() == "") {
+		return "Insert Allergies.";
+	}
+	// Gender-------------------------------
+	if ($("#Gender").val().trim() == "") {
+		return "Select Gender.";
+	}
+	
+	// Password------------------------
+	if ($("#password").val().trim() == "") {
+		return "Insert Patient Password.";
 	}
 
-	// is numerical value
-	var tmpPrice = $("#itemPrice").val().trim();
-	if (!$.isNumeric(tmpPrice)) {
-		return "Insert a numerical value for Item Price.";
+	// ConfirmPassword------------------------
+	if ($("#ConfirmPassword").val().trim() == "") {
+		return "Confirm Patient Password.";
 	}
-
-	// convert to decimal price
-	$("#itemPrice").val(parseFloat(tmpPrice).toFixed(2));
-
-	// DESCRIPTION------------------------
-	if ($("#itemDesc").val().trim() == "") {
-		return "Insert Item Description.";
-	}
-
 	return true;
 }

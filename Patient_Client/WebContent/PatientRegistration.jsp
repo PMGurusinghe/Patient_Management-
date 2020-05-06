@@ -1,29 +1,6 @@
 <%@ page import="com.Patient"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-
-<%  //Insert Patient----------------------------------
-if (request.getParameter("FirstName ") != null)  
-	{  
-	Patient pObj = new Patient(); 
- 
-  String stsMsg = pObj.insertPatient(  
-		  request.getParameter("FirstName"),    
-		  request.getParameter("LastName"), 
-		  request.getParameter("NIC"),  
-		  request.getParameter("DOB"),  
-		  request.getParameter("Email"),  
-		  request.getParameter("Mobile"),  
-		  request.getParameter("Address"),  
-		  request.getParameter("BloodGroup"),  
-		  request.getParameter("Allergy"),  
-		  request.getParameter("Gender"),
-		  request.getParameter("password"), 
-		  request.getParameter("ConfirmPassword")); 
- 
-  session.setAttribute("statusMsg", stsMsg);  
-  }  %>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -31,16 +8,20 @@ if (request.getParameter("FirstName ") != null)
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
 <title>Patient Registration</title>
+
 <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
 <link rel="stylesheet" href="css/Registration-Form-with-Photo.css">
 <link rel="stylesheet" href="css/styles.css">
+<script src="./Components/jquery-3.2.1.min.js"></script>
+<script src="./Components/Patient.js"></script>
+
 </head>
 <body>
 	<div class="register-photo">
 			
 		<div class="form-container">
 			
-			<form method="post" action="PatientRegistration.jsp">
+			<form id="formPatient" name="formPatient" method="post" action="PatientRegistration.jsp">
 					
 				<h2 class="text-center">
 					<strong>Patient Registration Form</strong>
@@ -51,7 +32,7 @@ if (request.getParameter("FirstName ") != null)
 					<div class="input-group-prepend">
 						<span class="input-group-text" id="lblFName">First Name:</span>
 					</div>
-					<input class="form-control" type="text" id="txtFname" name="FirstName"
+					<input class="form-control" type="text" id="FirstName" name="FirstName"
 						placeholder="Enter your First Name">
 				</div>
 
@@ -59,7 +40,7 @@ if (request.getParameter("FirstName ") != null)
 					<div class="input-group-prepend">
 						<span class="input-group-text" id="lblLName">Last Name:</span>
 					</div>
-					<input class="form-control" type="text" id="txtLname" name="LastName"
+					<input class="form-control" type="text" id="LastName" name="LastName"
 						placeholder="Enter your Last Name">
 				</div>
 
@@ -78,7 +59,7 @@ if (request.getParameter("FirstName ") != null)
 					<div class="input-group-prepend">
 						<span class="input-group-text" id="lblDOB">DOB:</span>
 					</div>
-					<input class="form-control" type="date" id="birthday"
+					<input class="form-control" type="date" id="DOB"
 						name="DOB" placeholder="Enter your DOB">
 				</div>
 
@@ -88,7 +69,7 @@ if (request.getParameter("FirstName ") != null)
 					<div class="input-group-prepend">
 						<span class="input-group-text" id="lblEmail">Email:</span>
 					</div>
-					<input class="form-control" type="email" id="email" name="Email"
+					<input class="form-control" type="email" id="Email" name="Email"
 						placeholder="Enter your Email">
 				</div>
 
@@ -98,7 +79,7 @@ if (request.getParameter("FirstName ") != null)
 					<div class="input-group-prepend">
 						<span class="input-group-text" id="lblMobile">Mobile:</span>
 					</div>
-					<input class="form-control" type="tel" id="phone" name="Mobile"
+					<input class="form-control" type="tel" id="Mobile" name="Mobile"
 						placeholder="Format: xxx-xx-xxxxx"
 						pattern="[0-9]{3}-[0-9]{2}-[0-9]{5}">
 				</div>
@@ -110,7 +91,7 @@ if (request.getParameter("FirstName ") != null)
 						<span class="input-group-text" id="lblAddress"> Current
 							Address: </span>
 					</div>
-					<input class="form-control" type="text" id="txtAddress"
+					<input class="form-control" type="text" id="Address"
 						name="Address" placeholder="Enter your Address">
 				</div>
 
@@ -120,7 +101,7 @@ if (request.getParameter("FirstName ") != null)
 					<div class="input-group-prepend">
 						<span class="input-group-text" id="lblBloodgroup"> Blood Group: </span>
 					</div>
-					<select class="form-control" id="ddlBloodgroup" name="BloodGroup" >
+					<select class="form-control" id="BloodGroup" name="BloodGroup" >
 					<option value="0">---Select Blood Group-</option>
 					<option value="1">A</option>
 					<option value="2">B</option>
@@ -133,7 +114,7 @@ if (request.getParameter("FirstName ") != null)
 					<div class="input-group-prepend">
 						<span class="input-group-text" id="lblAllergy"> Allergy: </span>
 					</div>
-					<input class="form-control" type="text" id="txtAddress"
+					<input class="form-control" type="text" id="Allergy"
 						name="Allergy" placeholder="Allergies">
 				</div>
 
@@ -155,7 +136,7 @@ if (request.getParameter("FirstName ") != null)
 					<div class="input-group-prepend">
 						<span class="input-group-text" id="lblGender"> Password: </span>
 					</div>
-					<input class="form-control" type="password" name="password"
+					<input class="form-control" type="password" id="password" name="password"
 						placeholder="Password">
 				</div>
 
@@ -163,34 +144,29 @@ if (request.getParameter("FirstName ") != null)
 					<div class="input-group-prepend">
 						<span class="input-group-text" id="lblGender">
 							Confirm-Password: </span>
-					</div>
-					<input class="form-control" type="password" name="ConfirmPassword"
+					</div> 
+					<input class="form-control" type="password" id="ConfirmPassword"name="ConfirmPassword"
 						placeholder="Password (confirm)">
 				</div>
-
-
+				
 				<div class="form-group">
-					<div class="form-check">
-						<label class="form-check-label"><input
-							class="form-check-input" type="checkbox">I agree to the
-							license terms.</label>
-					</div>
-				</div>
-				<div class="form-group">
-					<button class="btn btn-primary btn-block" name="btnSubmit" type="submit" value="Save">Sign
-						Up</button>
+				
+				<div id="alertSuccess" class="alert alert-success"></div>
+				<div id="alertError" class="alert alert-danger"></div>
+			
+				<input
+						id="btnSave" name="btnSave" type="button" value="SignUp"
+						class="btn btn-primary"> <input type="hidden"
+						id="hidItemIDSave" name="hidItemIDSave" value="">
 				</div>
 				<a class="already" href="PatientLogin.jsp">You already have an account? Login
 					here.</a>
+					
+						
+			
 			</form>
-		<%-- 	<%
-		out.print(session.getAttribute("statusMsg"));
-	%>
-	<br> --%>
-	<%-- <%
-		Patient pObj = new Patient();
-		out.print(pObj.readPatient());
-	%> --%>
+		
+	 
 		</div>
 	</div>
 	<script src="js/jquery.min.js"></script>

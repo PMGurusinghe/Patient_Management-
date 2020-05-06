@@ -18,7 +18,6 @@ public Connection connect() {
 		}
 		return con;
 	}
-
 public String insertPatient(String FName, String LName, String NIC,String DOB,String Email,String Mobile,String Address,String BloodGroup, String Allergy,String Gender,String password,String ConfirmPassword)
 		
 		 
@@ -56,7 +55,6 @@ public String insertPatient(String FName, String LName, String NIC,String DOB,St
 			preparedStmt.setString(12, password);
 			preparedStmt.setString(13, ConfirmPassword);
 		
-			/* preparedStmt.setDouble(4, Double.parseDouble(price)); */
 			// execute the statement
 			preparedStmt.execute();
 			con.close();
@@ -83,8 +81,9 @@ public String readPatient()
 	{return "Error while connecting to the database for reading."; } 
 	 
 	   // Prepare the html table to be displayed    
-	output = "<table border=\"1\"><tr><th>First Name</th><th>Last Name</th><th>NIC</th><th>DOB</th><th>Email</th><th>Mobile</th><th>Address</th><th>Blood Group</th><th>Allergy</th><th>Gender</th><th>password</th><th>Update</th><th>Remove</th></tr>"; 
-	 
+	output = "<table border=\'1'><tr><th>First Name</th><th>Last Name</th><th>NIC</th><th>DOB</th><th>Email</th><th>Mobile</th><th>Address</th><th>Blood Group</th><th>Allergy</th><th>Gender</th><th>password</th><th>Update</th><th>Remove</th></tr>"; 
+	
+
 	 
 	 
 	   String query = "select * from patient";    
@@ -106,11 +105,9 @@ public String readPatient()
 		    String Allergy = rs.getString("Allergy"); 
 		    String Gender = rs.getString("Gender"); 
 		    String Password = rs.getString("Password"); 
-		    
-		 /* String itemPrice = Double.toString(rs.getDouble("itemPrice")); */  
-		    
-		 // Add into the html table     
-		    output += "<tr><td>" + FirstName + "</td>";     
+		 // Add into the html table
+			output += "<tr><td><input id='hidItemIDUpdate'       name='hidItemIDUpdate' type='hidden'        value='"
+					+ Patient_ID + "'>" + FirstName + "</td>";     
 		    output += "<td>" + LastName + "</td>";     
 		    output += "<td>" + NIC + "</td>";     
 		    output += "<td>" + DOB + "</td>"; 
