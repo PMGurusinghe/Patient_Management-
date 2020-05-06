@@ -67,7 +67,7 @@ function onPatientSaveComplete(response, status) {
 	 }
 }
 // UPDATE=====================================================================
-$(document).on("click",".btnUpdate",function(event) {
+$(document).on("click",".btnUpdate",function(_event) {
 			$("#hidPatientIDSave").val($(this).closest("tr").find('#hidPatientUpdate').val());
 			$("#FirstName").val($(this).closest("tr").find('td:eq(0)').text());
 			$("#LastName").val($(this).closest("tr").find('td:eq(1)').text());
@@ -84,7 +84,7 @@ $(document).on("click",".btnUpdate",function(event) {
 		});
 
 //REMOVE========================================================================
-$(document).on("click", ".btnRemove", function(event) 
+$(document).on("click", ".btnRemove", function(_event) 
 		{  
 	$.ajax( 
 			{   

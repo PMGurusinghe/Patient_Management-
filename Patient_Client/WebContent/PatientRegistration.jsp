@@ -21,21 +21,9 @@
 			
 		<div class="form-container">
 			<form id="formPatient" name="formPatient" method="post" action="PatientRegistration.jsp">
-					<h2 class="text-center">
-					<strong>Patient Registration Form</strong>
-				</h2>
-					
-
-
-
-
-
-
-
-
-
-
-				FirstName: <input id="FirstName" name="FirstName" type="text"
+					<h2 class="text-center"><strong>Patient Registration Form</strong></h2>
+				
+					FirstName: <input id="FirstName" name="FirstName" type="text"
 						class="form-control form-control-sm"> <br> 
 					LastName: <input id="LastName" name="LastName" type="text"
 						class="form-control form-control-sm"> <br>
