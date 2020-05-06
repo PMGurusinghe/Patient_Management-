@@ -65,7 +65,7 @@ public class PatientAPI extends HttpServlet {
 		// TODO Auto-generated method stub
 		Map paras = getParasMap(request);
 
-		String output = patientObj.updatePatient(paras.get("hidItemIDSave").toString(), paras.get("FirstName").toString(),
+		String output = patientObj.updatePatient(paras.get("hidPatientIDSave").toString(), paras.get("FirstName").toString(),
 				paras.get("LastName").toString(), paras.get("NIC").toString(), paras.get("DOB").toString(), paras.get("Email").toString(),
 				paras.get("Mobile").toString(), paras.get("Mobile").toString(), paras.get("Address").toString(), paras.get("BloodGroup").toString(), 
 				paras.get("Allergy").toString(), paras.get("Gender").toString(), paras.get("password").toString());

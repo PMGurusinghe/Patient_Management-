@@ -106,8 +106,9 @@ public String readPatient()
 		    String Gender = rs.getString("Gender"); 
 		    String Password = rs.getString("Password"); 
 		    String ConfirmPassword = rs.getString("ConfirmPassword");
+		    
 		    // Add into the html table
-			output += "<tr><td><input id='hidItemIDUpdate'       name='hidItemIDUpdate' type='hidden'        value='"
+			output += "<tr><td><input id='hidPatientUpdate'       name='hidPatientUpdate' type='hidden'        value='"
 					+ Patient_ID + "'>" + FirstName + "</td>";     
 		    output += "<td>" + LastName + "</td>";     
 		    output += "<td>" + NIC + "</td>";     
@@ -121,7 +122,7 @@ public String readPatient()
 		    output += "<td>" + Password + "</td>"; 
 		    output += "<td>" + ConfirmPassword + "</td>";
 		 // buttons
-			output += "<td><input name='btnUpdate' type='button'       value='Update'           class='btnUpdate btn btn-secondary'></td>      <td><input name='btnRemove' type='button'       value='Remove'           class='btnRemove btn btn-danger' data-itemid='"
+			output += "<td><input name='btnUpdate' type='button'       value='Update'           class='btnUpdate btn btn-secondary'></td>      <td><input name='btnRemove' type='button'       value='Remove'           class='btnRemove btn btn-danger' data-Patient_ID='"
 					+ Patient_ID + "'>" + "</td></tr>";
 		    
 	   } 

@@ -26,7 +26,7 @@ $(document).on("click", "#btnSave", function(event) {
 	}
 	
 	// If valid-----------------------
-	var type = ($("#hidItemIDSave").val() == "") ? "POST" : "PUT";
+	var type = ($("#hidPatientIDSave").val() == "") ? "POST" : "PUT";
 	$.ajax( 
 			{
 				url : "PatientAPI",  
@@ -68,7 +68,7 @@ function onPatientSaveComplete(response, status) {
 }
 // UPDATE=====================================================================
 $(document).on("click",".btnUpdate",function(event) {
-			$("#hidItemIDSave").val($(this).closest("tr").find('#hidItemIDUpdate').val());
+			$("#hidPatientIDSave").val($(this).closest("tr").find('#hidPatientUpdate').val());
 			$("#FirstName").val($(this).closest("tr").find('td:eq(0)').text());
 			$("#LastName").val($(this).closest("tr").find('td:eq(1)').text());
 			$("#NIC").val($(this).closest("tr").find('td:eq(2)').text());
@@ -94,11 +94,11 @@ $(document).on("click", ".btnRemove", function(event)
 				dataType : "text",   
 				complete : function(response, status)  
 				{    
-					onItemDeleteComplete(response.responseText, status);  
+					onPatientDeleteComplete(response.responseText, status);  
 					} 
 			}); 
 	}); 
-function onItemDeleteComplete(response, status)
+function onPatientDeleteComplete(response, status)
 { 
 	if (status == "success")  
 	{  
@@ -160,11 +160,11 @@ function validatePatientForm() {
 	if ($("#Address").val().trim() == "") {
 		return "Insert Address.";
 	}
-	/*// BloodGroup-------------------------------
+	// BloodGroup-------------------------------
 	if ($("#BloodGroup").val() == "0") {
 		return "Select Blood Group.";
 	}
-*/
+
 	// Allergy-------------------------------
 	if ($("#Allergy").val().trim() == "") {
 		return "Insert Allergies.";
